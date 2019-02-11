@@ -1,6 +1,11 @@
 amqp==2.4.1
 billiard==3.5.0.5
 celery==4.2.1
+dnspython==1.16.0
+eventlet==0.24.1
+greenlet==0.4.15
 kombu==4.3.0
+monotonic==1.5
 pytz==2018.9
+six==1.12.0
 vine==1.2.0
