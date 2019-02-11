@@ -2,6 +2,14 @@ from celery import Celery
 import urllib.request
 import os
 
+"""
+The whole point of Celery is to run it as a separate process 
+so that your webapp could off-load computationally intense 
+tasks to it, so why are you trying to run Celery worker in the 
+same process as your webapp? 
+"""
+
+
 BASEDIR="/Users/bk930576/Python/downloads"
 
 app = Celery("CMS",
