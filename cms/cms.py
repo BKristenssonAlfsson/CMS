@@ -1,6 +1,6 @@
 from celery import Celery
-import urllib.request
-import os
+from cms.config import celeryconfig
+
 
 """
 The whole point of Celery is to run it as a separate process 
@@ -12,22 +12,14 @@ https://www.linode.com/docs/development/python/task-queue-celery-rabbitmq/
 """
 
 
-BASEDIR="/Users/bk930576/Python/downloads"
-
 app = Celery("cms",
              backend="rpc://",
-             broker="pyamqp://guest@localhost//")
+             broker="pyamqp://guest@localhost//",
+             include=['cms.tasks'],
+             )
 
+"""
+app = Celery()
+app.config_from_object('celeryconfig')
+"""
 
-@app.task
-def download(url, filename):
-    response = urllib.request.urlopen(url)
-    data = response.read()
-    with open(BASEDIR+"/"+filename, "wb") as file:
-        file.write(data)
-    file.close
-
-
-@app.task
-def list_all_files():
-    return os.listdir(BASEDIR)
