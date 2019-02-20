@@ -2,9 +2,9 @@ from cms.cms import app
 import os
 
 """Home base dir"""
-BASEDIR = "C:/Users/Björn/Python/downloads/"
+#BASEDIR = "C:/Users/Björn/Python/downloads/"
 """Work base dir"""
-#BASEDIR = "/Users/bk930576/Python/downloads/"
+BASEDIR = "/Users/bk930576/Python/downloads/"
 
 
 @app.task()
