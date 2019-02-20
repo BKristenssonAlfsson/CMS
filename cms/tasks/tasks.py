@@ -6,7 +6,8 @@ BASEDIR = "/Users/bk930576/Python/downloads/"
 
 @app.task()
 def enrollment(**kwargs):
-    d = kwargs.get("name"), kwargs.get("timestamp")
+    print(kwargs)
+    d = kwargs.get("name"), kwargs.get("timestamp"), kwargs.get("role")
     filename = 'enrollment.txt'
 
     complete_name = os.path.join(BASEDIR, filename)
